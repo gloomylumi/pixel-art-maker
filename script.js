@@ -4,23 +4,22 @@ var colors = ["#FFFFFF", "#C0C0C0", "#808080", "#404040", "#000000","#330066", "
 var paletteRow = document.getElementById('pal-row');
 var currentColor;
 var colorPicker = document.getElementById('color-picker');
-// var createColorPicker = function () {
-//   var colorPicker = document.createElement('input');
-//   colorPicker.type = "color";
-//   colorPicker.className = "color-picker clearfix";
-//   return colorPicker;
-// };
+
+// render grid and palette
 createPixelGrid(30,60);
-// createColorPalette(32);
 createColorWells(colors);
+
+// palette functionality
 paletteRow.addEventListener("click", function (event) {
   currentColor = event.target.style.backgroundColor;
   document.getElementById('current-color').style.backgroundColor = currentColor;
 });
+// color picker functionality
 colorPicker.addEventListener("change", function (event) {
   currentColor = event.target.value;
   document.getElementById('current-color').style.backgroundColor = currentColor;
 });
+// paint-brush functionality
 grid.addEventListener("mousedown", function (event) {
   event.target.style.backgroundColor = currentColor;
   grid.addEventListener("mouseover", setBackgroundColor);
@@ -28,6 +27,7 @@ grid.addEventListener("mousedown", function (event) {
 grid.addEventListener("mouseup", function () {
   grid.removeEventListener("mouseover", setBackgroundColor);
 });
+
 // Create pixel grid
 function createPixelGrid(rows,columns) {
   // create and append row containers to the grid
@@ -43,22 +43,8 @@ function createPixelGrid(rows,columns) {
     }
   }
 }
-// Create new color palette array
-// function createColorPalette(value) {
-//     var v = Math.floor(255/value);
-//     for( var rStep = 0, r = 0; rStep < v; rStep++) {
-//         for( var gStep = 0, g = 0; gStep < v; gStep++ ) {
-//             for( var bStep = 0, b = 0; bStep < v; bStep++ ) {
-//                 colors.push('rgb(' + r + ',' + g + ',' + b + ')');
-//                 colors.sort();
-//                 b += value;
-//             }
-//             g += value;
-//         }
-//         r += value;
-//     }
-// }
-//populate color wells and color picker
+
+//populate color wells
 function createColorWells(colors) {
   for (var i = 0; i < colors.length; i++) {
     var newColor = document.createElement('div');
@@ -67,7 +53,7 @@ function createColorWells(colors) {
     paletteRow.appendChild(newColor);
   }
 }
-
+// show current brush color
 function setBackgroundColor() {
   event.target.style.backgroundColor = currentColor;
 }
