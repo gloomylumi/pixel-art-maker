@@ -46,8 +46,8 @@ html{
 }
 .pixel-div {
   background-color: white;
-  min-width: 1.2rem;
-  min-height: 1.2rem;
+  min-width: 1rem;
+  min-height: 1rem;
   border-top: none;
   border-right: .1rem solid #ADADAD;
   border-bottom: .1rem solid #ADADAD;
@@ -57,7 +57,7 @@ html{
 
 /* ---- palette ---- */
 #palette {
-  flex-flow: column wrap;
+  flex-wrap: wrap;
   padding: 1.2rem;
   width: 100%;
   margin-left: auto;
@@ -69,7 +69,11 @@ html{
 }
 
 .palette-row {
-  width: 100%;
+  margin: auto;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
 }
 
 .color-well {
@@ -80,6 +84,34 @@ html{
   border-radius: 1rem;
   float: left;
 }
+
+#picker-container {
+  width: 42%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1.5rem;
+  margin-bottom: 0;
+}
+p {
+  text-align: center;
+  font-size: 2rem;
+  float: left;
+  margin: .2rem 0;
+  padding: 0;
+}
+.color-picker {
+  width: 5.6rem;
+  height: 2.8rem;
+  padding: 0;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  margin-top: .25rem;
+  margin-bottom: .25rem;
+  border: .2rem solid #424242;
+  border-radius: 1rem;
+  float: left;
+}
+
 
 /* ---- resets ---- */
 *,
